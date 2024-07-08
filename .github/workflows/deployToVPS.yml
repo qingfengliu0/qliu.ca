@@ -1,13 +1,13 @@
 name: Deploy to VPS
 
 on:
-  [push]:
+  push:
     branches:
       - main # or the branch you want to trigger the deployment
+    tags:
+      - 'v*' # trigger on version tags
   schedule:
     - cron: '0 0 * * *' # daily deployment at midnight (UTC)
-  status:
-    - 'v*' # trigger on version tags
 
 jobs:
   deploy:

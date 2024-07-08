@@ -24,6 +24,7 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@35.89.145.225 << 'EOF'
+        ssh -o StrictHostKeyChecking=no -t ec2-user@35.89.145.225 << 'EOF'
           bash /etc/nginx/deploy.sh
         EOF
+

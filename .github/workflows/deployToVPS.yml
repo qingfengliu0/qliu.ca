@@ -1,0 +1,29 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main # or the branch you want to trigger the deployment
+  schedule:
+    - cron: '0 0 * * *' # daily deployment at midnight (UTC)
+  status:
+    - 'v*' # trigger on version tags
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.VPS_DEPLOY_KEY }}
+
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no ec2-user@35.89.145.225 << 'EOF'
+          bash /etc/nginx/deploy.sh
+        EOF

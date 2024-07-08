@@ -26,6 +26,5 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -tt ec2-user@35.89.145.225 << 'EOF'
           sudo bash /etc/nginx/deploy.sh
-          exit
         EOF
 

@@ -1,0 +1,4 @@
+baseURL = 'https://qliu.ca/'
+languageCode = 'en-us'
+title = 'Hugo Testing site'
+theme = 'ananke'

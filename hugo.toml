@@ -1,4 +1,3 @@
-baseURL = 'https://qliu.ca/'
+baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Hugo Testing site'
-theme = 'ananke'
+title = 'My New Hugo Site'
